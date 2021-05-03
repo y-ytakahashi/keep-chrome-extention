@@ -24,7 +24,7 @@ module.exports = {
     project: "./tsconfig.eslint.json",
     tsconfigRootDir: __dirname,
   },
-  plugins: ["@typescript-eslint", "react-hooks", "react"],
+  plugins: ["@typescript-eslint", "react"],
   rules: {
     indent: ["error", 2],
     "no-void": "off",

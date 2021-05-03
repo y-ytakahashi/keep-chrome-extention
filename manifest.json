@@ -1,0 +1,16 @@
+{
+  "name": "reading",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "description": "reading list app",
+  "author": "y_ytakahashi",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "content_security_policy": "script-src 'self' 'sha256-xxx'; object-src 'self'"
+}
