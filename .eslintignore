@@ -1,0 +1,8 @@
+build/
+public/
+/**/*.d.ts
+src/index.tsx
+src/**/*.stories.tsx
+.eslintrc.js
+style.ts
+serviceWorker.ts
