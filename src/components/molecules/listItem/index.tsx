@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Card, CardContent } from "@material-ui/core";
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import { Box, Card, CardContent } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 
 interface Props {
   readingList: any;
@@ -10,7 +10,7 @@ interface Props {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: "flex",
+      display: 'flex',
       marginBottom: theme.spacing(2),
     },
     controls: {
@@ -24,9 +24,9 @@ const ListItem: React.FC<Props> = ({ readingList, setReadingList }) => {
   const classes = useStyles();
 
   const generateReadingList = () => {
-    return readingList.map((item: any, index: number) => {
+    return readingList.map((item: any) => {
       return (
-        <Card key={index} className={classes.root}>
+        <Card key={item.id} className={classes.root}>
           <CardContent className={classes.controls}>
             {item.title}
             {item.url}

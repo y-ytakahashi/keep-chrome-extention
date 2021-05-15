@@ -1,8 +1,7 @@
-import React from "react";
-// import ReadingListPage from ''
-// import { Counter } from "./features/counter/Counter";
-import ReadingListFrame from "components/pages/readingListFrame";
-const App = () => {
+import React from 'react';
+import ReadingListFrame from 'src/components/pages/readingListFrame';
+
+const App: React.VFC = () => {
   return <ReadingListFrame />;
 };
 

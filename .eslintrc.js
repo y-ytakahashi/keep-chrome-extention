@@ -1,39 +1,63 @@
 module.exports = {
   env: {
-    browser: true,
     es6: true,
     node: true,
+    browser: true, // ブラウザのグローバル変数を有効化
   },
-  extends: [
-    "plugin:react/recommended",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "react-app",
+  // parser: 'babel-eslint', // 変更
+  // parser: '@babel-eslint/parser', // 本来はこっちにしたい。
+
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    'react',
+    'prettier',
+    'jsx-a11y', // 追加 // 取りあえずのエラー回避ないので、無くしたい。
   ],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-  },
-  parser: "@typescript-eslint/parser",
   parserOptions: {
+    version: 2018,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
-    sourceType: "module",
-    project: "./tsconfig.eslint.json",
+    ecmaVersion: 2020,
+    // project: './tsconfig.eslint.json',
     tsconfigRootDir: __dirname,
   },
-  plugins: ["@typescript-eslint", "react"],
+  root: true,
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:prettier/recommended',
+    'prettier',
+  ],
   rules: {
-    indent: ["error", 2],
-    "no-void": "off",
+    'prettier/prettier': 'error',
+    'react/prop-types': 'off',
+    'no-unused-vars': 'off', // 追加 // 取りあえずのエラー回避ないので、無くしたい。
+    'no-use-before-define': 'off', // 変数を宣言前に使用することを許容しない
+    'import/no-extraneous-dependencies': 'off', // devDependencies を許容しない
+    'import/no-duplicates': 'off', // 重複した import 文を許容しない
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }], // import ファイルの拡張子をつけることを許容しない
+    'no-shadow': 'off', // スコープ内の変数とスコープ外の変数を重複して使用しないこと
+    'import/extensions': [0, 'never'],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }], // ++ 記述を許容しない
+    'react/jsx-props-no-spreading': 'off', // propsの分割代入を許容しない
+    'no-alert': 'off', // alert を許容しない
+    // 'no-console':"off", // console を許容しない
+    'react/prop-types': 'off',
+    "import/no-unresolved": "off",
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
   settings: {
-    "import/resolver": {
-      node: {
-        paths: ["src"],
-      },
+    'import/resolver': {
+      typescript: {},
     },
   },
 };

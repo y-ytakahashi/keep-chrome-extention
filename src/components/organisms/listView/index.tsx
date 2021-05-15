@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Box, Button, Paper, Card } from "@material-ui/core";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Paper, Card } from '@material-ui/core';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
-import ListItem from "components/molecules/listItem";
-import { IFListItem } from "interfaces/readingList/index";
+import ListItem from 'src/components/molecules/listItem';
+import { IFListItem } from 'src/interfaces/readingList/index';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      height: "100vh",
-      background: "gray",
-      padding: "8px",
-      margin: "8px",
+      height: '100vh',
+      background: 'gray',
+      padding: '8px',
+      margin: '8px',
     },
   })
 );
-const ListView = () => {
+const ListView: React.VFC = () => {
   const [list, setList] = useState<Array<any>>([]);
 
   const addList = () => {
     const chromeURL = {
-      url: "https://google.com",
-      title: "google",
-      memo: "home",
+      url: 'https://google.com',
+      title: 'google',
+      memo: 'home',
     };
 
     list.push(chromeURL);

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { Box } from "@material-ui/core";
-import ListView from "components/organisms/listView";
+import React, { FC } from 'react';
+import { Box } from '@material-ui/core';
+import ListView from 'src/components/organisms/listView';
 
 const ReadingListPage: FC = () => {
   return (
