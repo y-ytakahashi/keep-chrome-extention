@@ -40,7 +40,14 @@ const ListView: React.VFC = () => {
         'https://cdn.qiita.com/assets/qiita-fb-2887e7b4aad86fd8c25cea84846f2236.png',
       url: 'https://qiita.com',
       title: 'google',
+      description: `
+ここにページ詳細情報を表示する 改行情報も含む
+改行された文章はこういう感じに表示される想定
+大体３行を目安に表示する
+`,
       memo: 'home',
+      domainName: 'qiita.com',
+      modifiedDate: '2021/05/15',
     };
 
     list.push(chromeURL);

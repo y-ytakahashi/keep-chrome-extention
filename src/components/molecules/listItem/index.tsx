@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Box, Card, CardContent } from '@material-ui/core';
+import { Avatar, Box, Card, CardContent, Typography } from '@material-ui/core';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 import fetchThumbnailImage from 'src/services/fetchCardThumbnail';
 
@@ -19,6 +19,19 @@ const useStyles = makeStyles((theme: Theme) =>
     thumbnailArea: {
       margin: 'auto 0',
     },
+    large: {
+      width: theme.spacing(8),
+      height: theme.spacing(8),
+    },
+    pos: {
+      marginBottom: 0,
+      marginRight: theme.spacing(1),
+    },
+    caption: {
+      marginTop: theme.spacing(1),
+      display: 'flex',
+      justifyContent: 'left',
+    },
   })
 );
 
@@ -33,9 +46,31 @@ const ListItem: React.FC<Props> = ({ readingList, setReadingList }) => {
       return (
         <Card key={item.id} className={classes.root}>
           <Box className={classes.thumbnailArea}>
-            <Avatar variant='square' src={item.thumbnailURL} />
+            <Avatar
+              variant='square'
+              src={item.thumbnailURL}
+              className={classes.large}
+            />
           </Box>
-          <CardContent>{item.title}</CardContent>
+          <CardContent>
+            <Typography variant='h5' component='h2'>
+              {item.title}
+            </Typography>
+            <Typography
+              style={{ whiteSpace: 'pre-line' }}
+              variant='body2'
+              component='p'>
+              {item.description}
+            </Typography>
+            <Box className={classes.caption}>
+              <Typography className={classes.pos} color='textSecondary'>
+                {item.domainName}
+              </Typography>
+              <Typography className={classes.pos} color='textSecondary'>
+                {item.modifiedDate}
+              </Typography>
+            </Box>
+          </CardContent>
         </Card>
       );
     });
