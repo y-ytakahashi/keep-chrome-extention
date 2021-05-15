@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'left',
       marginBottom: theme.spacing(2),
       padding: `${theme.spacing(1)}px 0 0 ${theme.spacing(1)}px`,
+
+      '&:hover': {
+        background: theme.palette.action.hover,
+      },
     },
     thumbnailArea: {
       margin: 'auto 0',
