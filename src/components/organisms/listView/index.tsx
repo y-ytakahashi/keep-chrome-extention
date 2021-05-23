@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Paper, Card } from '@material-ui/core';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-
+import { useQuery, QueryClient, QueryClientProvider } from 'react-query';
 import ListItem from 'src/components/molecules/listItem';
 import { IFListItem } from 'src/interfaces/readingList/index';
+// API
+import ViewCardList from 'src/services/apis/viewCardList';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,8 +17,15 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
 const ListView: React.VFC = () => {
   const [list, setList] = useState<Array<any>>([]);
+  const { isLoading, isError, data: response, error } = useQuery(
+    'accounts',
+    () => ViewCardList.getViewBookMark('1234')
+  );
+
+  console.log({ response });
 
   const addList = () => {
     const chromeURL = {
