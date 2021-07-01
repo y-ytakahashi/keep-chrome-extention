@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { store } from './app/store';
+import { store } from './redux/store';
 import { Provider } from 'react-redux';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { theme } from './style';
 import * as serviceWorker from './serviceWorker';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import FirebaseAuth, { FirebaseContext } from 'src/services/firebase';
 
 const queryClient = new QueryClient();
 ReactDOM.render(
@@ -17,7 +18,9 @@ ReactDOM.render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <QueryClientProvider client={queryClient}>
-          <App />
+          <FirebaseContext.Provider value={FirebaseAuth.getInstance()}>
+            <App />
+          </FirebaseContext.Provider>
         </QueryClientProvider>
       </ThemeProvider>
     </Provider>

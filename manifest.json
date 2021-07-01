@@ -1,5 +1,5 @@
 {
-  "name": "reading",
+  "name": "keep",
   "manifest_version": 2,
   "version": "1.0.0",
   "description": "reading list app",
@@ -10,7 +10,7 @@
     "128": "icon128.png"
   },
   "browser_action": {
-    "default_popup": "index.html"
+    "default_popup": "popup.html"
   },
   "content_security_policy": "script-src 'self' 'sha256-xxx'; object-src 'self'"
 }
